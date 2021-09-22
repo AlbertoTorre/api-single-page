@@ -20,4 +20,9 @@ class Project extends Model
     protected $casts = [
         'tags'=> 'object'
     ];
+
+    public function getImageAttribute($value)
+    {
+        return str_replace('storage/app/public', 'storage', $value);
+    }
 }

@@ -15,7 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
-        Project::factory(4)->create();
+        $user = User::factory()->create();
+        echo "User email: {$user->email} \n";
+        echo "Token de acceso unico: \n {$user->createToken('tokenAccessUnique')->plainTextToken} \n";
+        echo  "----------------------------\n\n";
+
+        $projects = Project::factory(15)->create();
+        echo  "Projects \n";
+        foreach($projects as $project) {
+            echo "Title project: {$project->title} \n";
+        }
     }
 }

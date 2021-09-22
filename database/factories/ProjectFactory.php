@@ -12,9 +12,10 @@ class ProjectFactory extends Factory
     public function definition()
     {
         return [
-            'image' => $this->faker->image(),
-            'title' => $this->faker->title(),
-            'description' => $this->faker->words(3, true),
+            // 'image' => $this->faker->imageUrl(640, 480, "business"),
+            'image' => "https://source.unsplash.com/collection/1907".random_int(20, 29)."/1600x900",
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->paragraph(3),
             'tags' => json_encode($this->tags()),
             'featured'=> $this->faker->boolean()
         ];
